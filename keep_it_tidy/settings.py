@@ -30,7 +30,7 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-u7h410xgl08.ws-eu100.gitpod.io', 'pickers-london.herokuapp.com']
+ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-8ko9dyvx892.ws-eu100.gitpod.io', 'pickers-london.herokuapp.com']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'litter_pickers',
 ]
 
