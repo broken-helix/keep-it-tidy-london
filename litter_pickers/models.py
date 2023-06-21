@@ -4,10 +4,76 @@ from cloudinary.models import CloudinaryField
 
 
 class Event(models.Model):
+    BARKINGANDDAGENHAM = 'BAD'
+    BARNET = 'BAD'
+    BEXLEY = 'BEX'
+    BRENT = 'BRE'
+    BROMLEY = 'BRO'
+    CAMDEN = 'CAM'
+    CROYDON = 'CRO'
+    EALING = 'EAL'
+    ENFIELD = 'ENF'
+    GREENWICH = 'GRE'
+    HACKNEY = 'HAC'
+    HAMMERSMITHANDFULHAM = 'HAF'
+    HARINGEY = 'HAR'
+    HARROW = 'HRW'
+    HAVERING = 'HAV'
+    HILLINGDON = 'HIL'
+    HOUNSLOW = 'HOU'
+    ISLINGTON = 'ISL'
+    KENSINGTONANDCHELSEA = 'KAC'
+    KINGSTON = 'KIN'
+    LAMBETH = 'LAM'
+    LEWISHAM = 'LEW'
+    MERTON = 'MER'
+    NEWHAM = 'NEW'
+    REDBRIDGE = 'RED'
+    RICHMOND = 'RIC'
+    SOUTHWARK = 'SOU'
+    SUTTON = 'SUT'
+    TOWERHAMLETS = 'TOW'
+    WALTHAMFOREST = 'WAL'
+    WANDSWORTH = 'WAN'
+    WESTMINSTER = 'WES'
+    BOROUGHS = [
+        (BARKINGANDDAGENHAM, 'Barking and Dagenham'),
+        (BARNET, 'Barnet'),
+        (BEXLEY, 'Bexley'),
+        (BRENT, 'Brent'),
+        (BROMLEY, 'Bromley'),
+        (CAMDEN, 'Camden'),
+        (CROYDON, 'Croydon'),
+        (EALING, 'Ealing'),
+        (ENFIELD, 'Enfield'),
+        (GREENWICH, 'Greenwich'),
+        (HACKNEY, 'Hackney'),
+        (HAMMERSMITHANDFULHAM, 'Hammersmith and Fulham'),
+        (HARINGEY, 'Haringey'),
+        (HARROW, 'Harrow'),
+        (HAVERING, 'Havering'),
+        (HILLINGDON, 'Hillingdon'),
+        (HOUNSLOW, 'Hounslow'),
+        (ISLINGTON, 'Islington'),
+        (KENSINGTONANDCHELSEA, 'Kensington and Chelsea'),
+        (KINGSTON, 'Kingston'),
+        (LAMBETH, 'Lambeth'),
+        (LEWISHAM, 'Lewisham'),
+        (MERTON, 'Merton'),
+        (NEWHAM, 'Newham'),
+        (REDBRIDGE, 'Redbridge'),
+        (RICHMOND, 'Richmond'),
+        (SOUTHWARK, 'Southwark'),
+        (SUTTON, 'Sutton'),
+        (TOWERHAMLETS, 'Tower Hamlets'),
+        (WALTHAMFOREST, 'Waltham Forest'),
+        (WANDSWORTH, 'Wandsworth'),
+        (WESTMINSTER, 'Westminster'),
+    ]
     title = models.CharField(max_length=200, blank=False)
     details = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
-    borough = models.CharField(max_length=80)
+    borough = models.CharField(max_length=80, choices=BOROUGHS)
     meeting_point = models.CharField(max_length=200)
     organiser = models.ForeignKey(User, on_delete=models.CASCADE, related_name='event_organiser')
     date = models.DateField(blank=False)
