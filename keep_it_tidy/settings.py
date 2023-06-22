@@ -30,7 +30,7 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-8ko9dyvx892.ws-eu100.gitpod.io', 'https://pickers-london-f5f0f470e555.herokuapp.com/']
+ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-8ko9dyvx892.ws-eu100.gitpod.io', 'https://pickers-london-f5f0f470e555.herokuapp.com']
 
 
 # Application definition

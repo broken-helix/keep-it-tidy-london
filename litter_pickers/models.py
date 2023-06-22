@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 class Event(models.Model):
     BARKINGANDDAGENHAM = 'BAD'
-    BARNET = 'BAD'
+    BARNET = 'BAR'
     BEXLEY = 'BEX'
     BRENT = 'BRE'
     BROMLEY = 'BRO'
@@ -87,6 +87,9 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def __str__(self):
+        return self.get_borough_display()
 
     def number_of_attendees(self):
         return self.attending.count()
