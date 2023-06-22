@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Event
+from .forms import CommentForm
 
 
 def index(request):
@@ -14,6 +15,57 @@ class EventList(generic.ListView):
     paginate_by = 6
 
 
-class EventDetail(generic.DetailView):
-    model = Event
-    template_name = 'event_details.html'
+class EventDetail(View):
+    # model = Event
+    # template_name = 'event_details.html'
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Event.objects.all()
+        event = get_object_or_404(queryset, slug=slug)
+        comments = event.comments.filter(approved=True).order_by("-created")
+        attending = False
+        if event.attending.filter(id=self.request.user.id).exists():
+            liked = True
+
+        return render(
+            request,
+            "event_details.html",
+            {
+                "event": event,
+                "comments": comments,
+                "commented": False,
+                "attending": attending,
+                "comment_form": CommentForm()
+            },
+        )
+    
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Event.objects.all()
+        event = get_object_or_404(queryset, slug=slug)
+        comments = event.comments.filter(approved=True).order_by("-created")
+        attending = False
+        if event.attending.filter(id=self.request.user.id).exists():
+            liked = True
+
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.event = event
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            "event_details.html",
+            {
+                "event": event,
+                "comments": comments,
+                "commented": True,
+                "comment_form": comment_form,
+                "attending": attending
+            },
+        )
