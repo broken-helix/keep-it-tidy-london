@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View
 from .models import Event
 
 
@@ -12,3 +12,8 @@ class EventList(generic.ListView):
     # queryset = Event.objects.order_by(-created)
     template_name = 'events.html'
     paginate_by = 6
+
+
+class EventDetail(generic.DetailView):
+    model = Event
+    template_name = 'event_details.html'
