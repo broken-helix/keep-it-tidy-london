@@ -29,7 +29,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-CRISPY_TEMPLATE = 'bootstrap4'
+CRISPY_TEMPLATE = 'bootstrap5'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -40,8 +40,7 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-8ko9dyvx892.ws-eu100.gitpod.io', 'pickers-london-f5f0f470e555.herokuapp.com']
-
+ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-fvboom5jfzb.ws-eu100.gitpod.io', 'pickers-london-f5f0f470e555.herokuapp.com']
 
 # Application definition
 
