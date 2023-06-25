@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<h1>Add Event</h1>
+
+<form method="POST" class="form-control" style="margin-top: 1.3em;">
+    {% crispy form %}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+</form>
+
+{% endblock %}

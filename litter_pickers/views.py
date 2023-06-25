@@ -57,6 +57,7 @@ class EventDetail(View):
             comment.event = event
             comment.save()
             comment_form = CommentForm()
+            return HttpResponseRedirect(reverse('event_detail', args=[slug]))
         else:
             comment_form = CommentForm()
 
@@ -84,3 +85,9 @@ class EventAttending(View):
                 event.attending.add(request.user)
 
             return HttpResponseRedirect(reverse('event_detail', args=[slug]))
+
+
+class AddEventView(generic.CreateView):
+    model = Event
+    fields = '__all__'
+    template_name = 'add_event.html'
