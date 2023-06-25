@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Event
-from .forms import CommentForm
+from .forms import CommentForm, EventForm
 
 
 def index(request):
@@ -87,7 +87,10 @@ class EventAttending(View):
             return HttpResponseRedirect(reverse('event_detail', args=[slug]))
 
 
-class AddEventView(generic.CreateView):
-    model = Event
-    fields = '__all__'
-    template_name = 'add_event.html'
+
+def add_event(request):
+    form = EventForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+    return render(request, "add_event.html", {'form': form})

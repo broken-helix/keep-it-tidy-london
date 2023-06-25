@@ -1,6 +1,9 @@
 from .models import Comment, Event
 from django import forms
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit, Div
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -18,5 +21,6 @@ class EventForm(forms.ModelForm):
             'date',
             'borough',
             'meeting_point',
+            'organiser',
             'slug',
             )
