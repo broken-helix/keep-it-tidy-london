@@ -117,3 +117,25 @@ class AddEventView(generic.CreateView):
         form.instance.organiser = self.request.user
         return super (AddEventView, self).form_valid(form)
 
+
+class EditEventView(generic.UpdateView):
+    model = Event
+    template_name = 'edit_event.html'
+    fields = (
+        'title',
+        'featured_image',
+        'details',
+        'date',
+        'borough',
+        'meeting_point',
+        'slug',
+        )
+
+    def get_success_url(self):
+        return reverse('event_detail', args=(self.object.id, self.object.slug,))
+
+
+class DeleteEventView(generic.DeleteView):
+    model = Event
+    success_url = reverse_lazy('events')
+    template_name = 'delete_event.html'
