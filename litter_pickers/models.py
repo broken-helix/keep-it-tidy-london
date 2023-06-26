@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 
 
 class Event(models.Model):
@@ -93,6 +95,14 @@ class Event(models.Model):
 
     def number_of_attendees(self):
         return self.attending.count()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Event, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('event_detail', args=(str(self.slug)))
+
 
 
 class Comment(models.Model):

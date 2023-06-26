@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from .models import Event
-from .forms import CommentForm, EventForm
+from .forms import CommentForm
 
 
 def index(request):
@@ -87,10 +88,32 @@ class EventAttending(View):
             return HttpResponseRedirect(reverse('event_detail', args=[slug]))
 
 
-
+"""
 def add_event(request):
     form = EventForm(request.POST, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-    return render(request, "add_event.html", {'form': form})
+    return render(request, "add_events.html", {'form': form})
+"""
+
+
+class AddEventView(generic.CreateView):
+    model = Event
+    template_name = 'add_event.html'
+    fields = (
+        'title',
+        'featured_image',
+        'details',
+        'date',
+        'borough',
+        'meeting_point',
+        )
+
+    def get_success_url(self):
+        return reverse('event_detail', args=(self.object.id, self.object.slug,))
+
+    def form_valid(self, form):
+        form.instance.organiser = self.request.user
+        return super (AddEventView, self).form_valid(form)
+

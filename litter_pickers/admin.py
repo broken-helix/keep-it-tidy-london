@@ -5,9 +5,9 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Event)
 class EventAdmin(SummernoteModelAdmin):
     # fields to display in events view in admin panel
-    list_display = ('title', 'borough', 'date', 'organiser', 'meeting_point',)
+    list_display = ('title', 'borough', 'date', 'organiser', 'meeting_point', 'slug',)
     # auto complete slug field in admin panel
-    prepopulated_fields = {'slug': ('date', 'title',)}
+    prepopulated_fields = {'slug': ('date', 'title',),}
     # add search fields to admin panel
     search_fields = ('title', 'organiser', 'details',)
     # add list filter in admin panel

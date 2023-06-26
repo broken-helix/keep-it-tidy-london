@@ -26,7 +26,7 @@
                                     <p class="author">{{ event.date }}</p>
                                 </div>
                         </div>
-                        <a href="{% url 'event_detail' event.slug %}" class="event-link">
+                        <a href="{% url 'event_detail' event.id event.slug %}" class="event-link">
                             <h2 class="card-title">{{ event.title }}</h2>
                         </a>
                         <hr />
