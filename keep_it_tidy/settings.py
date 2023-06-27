@@ -38,7 +38,7 @@ CRISPY_TEMPLATE = 'bootstrap5'
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-brokenhelix-keepittidyl-fvboom5jfzb.ws-eu100.gitpod.io', 'pickers-london-f5f0f470e555.herokuapp.com']
 
