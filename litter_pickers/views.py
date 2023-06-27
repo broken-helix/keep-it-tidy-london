@@ -58,13 +58,13 @@ class EventDetail(View):
             comment.event = event
             comment.save()
             comment_form = CommentForm()
-            return HttpResponseRedirect(reverse('event_detail', args=[slug]))
+            return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
         else:
             comment_form = CommentForm()
 
         return render(
             request,
-            "event_details.html",
+            self.template_name,
             {
                 "event": event,
                 "comments": comments,
@@ -76,6 +76,7 @@ class EventDetail(View):
 
 
 class EventAttending(View):
+    
 
     def post(self, request, slug):
         event = get_object_or_404(Event, slug=slug)
@@ -85,7 +86,7 @@ class EventAttending(View):
             else:
                 event.attending.add(request.user)
 
-            return HttpResponseRedirect(reverse('event_detail', args=[slug]))
+            return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
 
 
 """

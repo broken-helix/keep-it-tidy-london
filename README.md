@@ -1,108 +1,258 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Litter Pickers London**
+## **Site Overview**
 
-Welcome James Evans,
+Litter Pickers London is a site dedicated to spreading the word about Litter Picking and creating a community via user-organised litter picking events.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[View the live project here](https://pickers-london-f5f0f470e555.herokuapp.com).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Responsive Screenshot](/docs/am-i-responsive.jpg)
+***
 
-## Gitpod Reminders
+## Table of contents:
+1. [**Site Overview**](#site-overview)
+1. [**Planning stage**](#planning-stage)
+    * [***Wireframes***](#wireframes)
+    * [***Target Audiences***](#target-audiences)
+    * [***User Stories***](#user-stories)
+    * [***Site Aims***](#site-aims)
+    * [***Color Scheme***](#color-scheme)
+    * [***Typography***](#typography)
+1. [**Current Features**](#current-features)
+    * [***Home Page***](#home-page)
+    * [***Navigation***](#navigation)
+    * [***Events Page***](#events-page)
+    * [***Event Details Page***](#event-details)
+    * [***Controls Area***](#controls-area)
+    * [***Add Event Page***](#add-event)
+    * [***Edit Event Page***](#add-event)
+    * [***Delete Event Page***](#add-event)
+    * [***Add Comment***](#add-comment)
+    * [***Attend Event***](#attend-event)
+    * [***Alerts***](#alerts)
+    * [***User Accounts***](#user-accounts)
+    * [***Reset Button***](#reset-button)
+1. [**Future-Enhancements**](#future-enhancements)
+1. [**Testing Phase**](#testing-phase)
+1. [**Deployment**](#deployment)
+1. [**Tech**](#tech)
+1. [**Credits**](#credits)
+    * [**Honorable mentions**](#honorable-mentions)
+    * [**General reference**](#general-reference)
+    * [**Content**](#content)
+***
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## **Planning stage**
 
-`python3 -m http.server`
+### **Wireframes:**
 
-A blue button should appear to click: _Make Public_,
+Wireframes were used to plan out the design of the site on desktop and mobile devices.
 
-Another blue button should appear to click: _Open Browser_.
+![Desktop Wireframe](/docs/rockpaperscissorsdesktopwireframe.jpg)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Mobile Wireframe](/docs/rockpaperscissorsmobilewireframe.jpg)
+***
 
-A blue button should appear to click: _Make Public_,
+### **Target Audiences:**
 
-Another blue button should appear to click: _Open Browser_.
+* People who want to find out more about Litter Picking.
+* People who want to organise litter picking events.
+* People who want to find organised litter picking events.
+***
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### **User Stories:**
 
-To log into the Heroku toolbelt CLI:
+* Github
+***
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### **Site Aims:**
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* To introduce the user to litter picking
+* To host litter picking events
+* To build a community via attending icons and comments
+* To build an interactive site using DJANGO with CRUD functionality
+***
 
-------
+### **Color Scheme:**
 
-## Release History
+The color scheme was designed to incorporate natural greens, browns and yellows, to reflect the environmental aspect, along with complementary colors.
+Colors were selected using the coolors color palette generator.  <br><br>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+![Coolors Palette](/docs/coolors.jpg)
+***
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## **Typography**
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+* The font used throughout the game was selected from Google Fonts.
+* A retro style computer font was desired, but most options seemed quite pixelated, so [Smooch sans](https://fonts.google.com/specimen/Smooch+Sans) was selected for its more modern and smoother representation.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Font selection](/docs/smooch-sans-font.jpg)
+***
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## **Current Features**
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### *Home Page:*
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+* The page title clearly indicates to the user what the site is about, in the choice of words and positioning at the top of the page, outside of the game area. A seperate colour was used to separate it from the game itself.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Page Title](/docs/title.jpg)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+#### *Events Page:*
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* The game area holds all the elements required to play the game and display the outcome and points.  It narrows as the screen sizes increase, to avoid filling the screen with large areas to the left and right hand sides, with no content.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Game Area](/docs/desktop-view.jpg)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+#### *Events Details Page:*
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* To illustrate the available options and choices, the following icons from FontAwesome are employed within the borders of buttons and other elements on the page.
+* [Question Mark](https://fontawesome.com/icons/question?s=solid&f=classic)
+* [Rock Symbol](https://fontawesome.com/icons/hand-back-fist?s=regular&f=classic)
+* [Paper Symbol](https://fontawesome.com/icons/hand?s=regular&f=classic)
+* [Scissors Symbol](https://fontawesome.com/icons/hand-scissors?s=regular&f=classic)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+#### *Controls Area:*
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* The Control Area invites the player to select a weapon, contains three horizontally aligned buttons containing different symbols, representing the options of Rock, Paper or Scissors.  Titles for the options are listed below the buttons.  When the player selects an option, further selections are disabled until the game result is displayed and the button image turns green to feedback that the selection has been made.  Buttons return to the default state once they are reactivated.
 
-------
+![Control Area](/docs/buttons.jpg)
+​
+#### *Choices Area:*
 
-## FAQ about the uptime script
+* The Choices area displays the choices made for the current game.  Initially two question mark symbols are displayed.
 
-**Why have you added this script?**
+![Choices Area](/docs/choices-default.jpg)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+* When the player selects an option from the buttons in the controls area, the selection replaces the question mark in the Player Choice element.
 
-**How will this affect me?**
+![Player Choice](/docs/choice-player-selection.jpg)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* After a short delay, the computer's random selection is displayed and the game completes, showing the colours corresponding to the game result.  Draw's or Tie's are displayed in a blue-green colour.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![Computer Choice](/docs/choice-computer-selection.jpg)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+* Win and loss games display red and green for the separate choice icons.
 
-**So….?**
+![Win Lose Choice](/docs/choice-win-lose.jpg)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+#### *Game State Area:*
 
-**Can I opt out?**
+* The Game State area holds the scores and a central game result element, which shows whether the game was won, lost or drawn from the player's aspect once a game is initiated and the computer choice has been displayed.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Game State Area](/docs/game-state-area-default.jpg)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+#### *Scores:*
 
-**Anything more?**
+* The scores increment each time there is a win or loss game and change colour to show green for the opponent who is losing or green for winning.  The scores do not change colour if there is a draw and no score has been registered yet.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+![Win Loss State](/docs/game-state-area.jpg)
 
----
+![Draw No-Score Event](/docs/points-draw-nil-nil.jpg)
 
-Happy coding!
+![Draw No-Score Event](/docs/points-draw-state.jpg)
+
+#### *Game Result:*
+
+* The game result element shows a question mark when the page loads and as soon as a controls area button is pressed.  It then displays a text and colour indication of whether the game was won, lost or drawn.
+
+![Game Result Options](/docs/game-state-displays.jpg)
+​
+#### *Information Area:*
+
+* The information area, at the bottom of the game area, holds the buttons to reset the game back to the default state and to bring up an alert box which tells the player how to play the game and what the winning options are.
+
+#### *How To Play Button:*
+
+* The 'how to play' button uses an 'onclick' call in the html to call the function which displays the alert.  Sweet Alert 2 was installed to handle the alert.
+
+![Sweet Alert Box](/docs/sweetalert2-box.jpg)
+
+#### *The Reset Button:*
+
+* The reset button is activated via an event listener, which then resets the symbols, scores and colours to their default state.
+
+## **Future-Enhancements**
+
+* Allow the user to select a set number of games, as a 'best of x turns' game.
+* Make the game appear fairer to the user by limiting the number of excess computer wins.
+* Make player and computer choice elements spin around Y-axis before displaying the result.
+* Make game playable for two human players.
+***
+
+## **Testing Phase**
+
+* Responsiveness - A mobile-first approach was used to develop the site, using the iPhone 12 profile in Chrome dev tools.  The site was tested for responsiveness on different screen sizes throughout the development stages, using chrome dev tools, which allowed the page to be adjusted to display on small and large screen sizes with media queries.  The site was also tested using firefox on a desktop, on an android mobile phone using chrome, on an ipad and iphone 6 using safari and designed to display correctly.
+​
+* Functionality - Each button has been pressed to make sure it applies the correct result.  All possible combinations have been tested to ensure the colours display correctly.  The reset button was tested to make sure all colors returned to black, symbols returned to defaults and scores returned to 0.  After resets, the game has been tested to make sure it continues to be playable.  The game info button was tested to make sure the alert box appeared and could be closed again.  The game was also given to a five year old, who played nearly 100 games on an ipad, highlighting the need to reduce the wait time for the game result, and was sent to family and friends who reported no issues using the game.
+
+* Contrast - The contrast on the page was checked using the WCAG Color contrast checker plugin in chrome and found to pass the tests, after adjustments to the colours and background and restricting colour changes to the inner parts of the elements and not the borders.
+
+![WCAG Color Contrast Results](/docs/wcag-contrast-check.jpg)
+
+* Lighthouse - The site was checked using the Lighthouse chrome plugin and found to pass the tests.
+
+![Lighthouse Desktop Results](/docs/lighthouse-desktop.jpg)
+
+![lighthouse Mobile Results](/docs/lighthouse-mobile.jpg)
+​
+* Validators - The W3C validator was used to check both HTML and CSS, with the only error found that the validator didn't validate the google scripts code at the top of the CSS file.  JShint was utilised to check the javscript and some minor errors were found which do not affect the functionality of the site.
+
+![HTML Validator](/docs/html-validation.jpg)
+
+![CSS Validator](/docs/css-validation.jpg)
+
+![CSS Validator Error](/docs/css-validation-error.jpg)
+
+![JS Validator Error](/docs/jshint-result.jpg)
+***
+
+## **Bugs**
+
+* Issue - When checking the site on an ipad, the buttons were displayed in blue and partial colour changes were noted on the choices elements.
+* Cause - It appears that safari requires the color to be explicitly expressed in the relevant parts of the CSS, rather than just in the body and the blue portions were a fallback colour.
+* Resolution -  The colours were specified in the relevant parts of the CSS.
+
+
+* Issue - When testing the site on an ipad, the game area extended beyond the viewport when holding in landscape view.
+* Cause - Chrome's dev tools did not precisely mimic the ipad.
+* Resolution - Additional media queries were add to retrict the size on the iPad.
+***
+
+## **Deployment**
+
+I deployed the page on GitHub pages via the following procedure:
+​
+1. From the project's [repository](https://github.com/broken-helix/rockpaperscissors), go to the **Settings** tab.
+2. From the left-hand menu, select the **Pages** tab.
+3. Under the **Source** section, select the **Main** branch from the drop-down menu and click **Save**.
+4. A message is displayed to indicate a successful deployment to GitHub pages and provide the live link.
+​
+The live site can be found at the following URL - [Rock, Paper, Scissors](https://broken-helix.github.io/rockpaperscissors/).
+***
+
+## **Tech**
+​
+The following technologies were employed in the creation of the site:
+​
+- HTML
+- CSS
+- JS
+- SweetAlert2
+- Balsamiq Wireframes
+***
+
+## **Credits**
+
+### **Honorable mentions**
+
+* Once again, I would like to thank my mentor, Richard Wells, who gave me some great insights into javascript and kept me motivated.
+***
+
+### **Content:**
+
+* Fonts were sourced from [Google Fonts](https://fonts.google.com/).
+
+* Icons for the social media links and why fly section were sourced from [Font Awesome](https://fontawesome.com/icons).
+
+* The Sweet Alert box was installed from [Sweet Alert](https://sweetalert2.github.io/).
+
+* Wireframes were created using the [Balsamiq Wireframes](https://balsamiq.com/wireframes/) application.
