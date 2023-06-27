@@ -12,14 +12,11 @@ def index(request):
 
 class EventList(generic.ListView):
     model = Event
-    # queryset = Event.objects.order_by(-created)
     template_name = 'events.html'
     paginate_by = 6
 
 
 class EventDetail(View):
-    # model = Event
-    # template_name = 'event_details.html'
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Event.objects.all()
@@ -42,7 +39,6 @@ class EventDetail(View):
         )
     
     def post(self, request, slug, *args, **kwargs):
-
         queryset = Event.objects.all()
         event = get_object_or_404(queryset, slug=slug)
         comments = event.comments.filter(approved=True).order_by("-created")
@@ -77,7 +73,6 @@ class EventDetail(View):
 
 class EventAttending(View):
     
-
     def post(self, request, slug):
         event = get_object_or_404(Event, slug=slug)
         if request.method == "POST" and request.user.is_authenticated:
@@ -87,16 +82,6 @@ class EventAttending(View):
                 event.attending.add(request.user)
 
             return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
-
-
-"""
-def add_event(request):
-    form = EventForm(request.POST, request.FILES or None)
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.save()
-    return render(request, "add_events.html", {'form': form})
-"""
 
 
 class AddEventView(generic.CreateView):

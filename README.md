@@ -10,19 +10,20 @@ Litter Pickers London is a site dedicated to spreading the word about Litter Pic
 
 ## Table of contents:
 1. [**Site Overview**](#site-overview)
-1. [**Planning stage**](#planning-stage)
+
+2. [**Planning stage**](#planning-stage)
+    * [***Site Aims***](#site-aims)
+    * [***Database Plan***](#database-plan)
     * [***Wireframes***](#wireframes)
     * [***Target Audiences***](#target-audiences)
     * [***User Stories***](#user-stories)
-    * [***Site Aims***](#site-aims)
     * [***Color Scheme***](#color-scheme)
     * [***Typography***](#typography)
-1. [**Current Features**](#current-features)
+3. [**Current Features**](#current-features)
     * [***Home Page***](#home-page)
     * [***Navigation***](#navigation)
     * [***Events Page***](#events-page)
     * [***Event Details Page***](#event-details)
-    * [***Controls Area***](#controls-area)
     * [***Add Event Page***](#add-event)
     * [***Edit Event Page***](#add-event)
     * [***Delete Event Page***](#add-event)
@@ -30,39 +31,17 @@ Litter Pickers London is a site dedicated to spreading the word about Litter Pic
     * [***Attend Event***](#attend-event)
     * [***Alerts***](#alerts)
     * [***User Accounts***](#user-accounts)
-    * [***Reset Button***](#reset-button)
-1. [**Future-Enhancements**](#future-enhancements)
-1. [**Testing Phase**](#testing-phase)
-1. [**Deployment**](#deployment)
-1. [**Tech**](#tech)
-1. [**Credits**](#credits)
+4. [**Future-Enhancements**](#future-enhancements)
+5. [**Testing Phase**](#testing-phase)
+6. [**Deployment**](#deployment)
+7. [**Tech**](#tech)
+8. [**Credits**](#credits)
     * [**Honorable mentions**](#honorable-mentions)
     * [**General reference**](#general-reference)
     * [**Content**](#content)
 ***
 
 ## **Planning stage**
-
-### **Wireframes:**
-
-Wireframes were used to plan out the design of the site on desktop and mobile devices.
-
-![Desktop Wireframe](/docs/rockpaperscissorsdesktopwireframe.jpg)
-
-![Mobile Wireframe](/docs/rockpaperscissorsmobilewireframe.jpg)
-***
-
-### **Target Audiences:**
-
-* People who want to find out more about Litter Picking.
-* People who want to organise litter picking events.
-* People who want to find organised litter picking events.
-***
-
-### **User Stories:**
-
-* Github
-***
 
 ### **Site Aims:**
 
@@ -72,20 +51,75 @@ Wireframes were used to plan out the design of the site on desktop and mobile de
 * To build an interactive site using DJANGO with CRUD functionality
 ***
 
+### **Database Plan:**
+
+![Database Plan](/docs/images/drawsql.jpg)
+***
+
+### **Wireframes:**
+
+Wireframes were used to plan out the design of the site on desktop and mobile devices.
+
+![Desktop Wireframe](/docs/images/mobile-home-wireframe.png)
+
+![Mobile Wireframe](/docs/rockpaperscissorsmobilewireframe.jpg)
+***
+
+### **Target Audiences:**
+
+* People who want to find out more about Litter Picking.
+* People who want to organise litter picking events in London.
+* People who want to find organised litter picking events in London.
+***
+
+### **User Stories:**
+
+An Agile Approach was followed in the planning and construction of the site.  User stories were built using GitHub Issues, grouped into Epics for different aspects of the site design (structure, administration, content creation etc...), attached to a Milestone and organised onto a board.  Each user story has a list of tasks to tick off and an acceptance criteria.  As stories were built, they were moved to the Not Started column of the board.  Once they were started, they were moved to the In Progress Column and finally, when all tasks were complete, the story was moved to the complete column and marked closed.  Each story was listed in relevant Epic as a task and ticked off when the story was complete.
+
+The project board can be viewed here: [Litter Pickers London Project Board](https://github.com/users/broken-helix/projects/7/views/1).
+
+*Stories*
+
+* **SITE ADMINISTRATION:** As a **manager of the site** I can **login to the admin panel** so that **I can manage the site**.
+* **ADMIN PANEL CUSTOMISATION:** As a **site administrator** I can **use the admin panel to filter and search content and use a WYSIWYG editor and auto-generate slugs** so that **I can easily add and manage content**.
+* **ADD IMAGES TO EVENTS IN ADMIN PANEL:** As an **admin** I can **add images in the admin panel** so that **I can add images to events**.
+* **VIEW A HOME PAGE:** As a **user** I can **view a home page** so that **I can understand what the site is about**.
+* **VIEW AN EVENTS PAGE:** As a **user** I can **view an events page** so that **I can see a list of events**.
+* **VIEW EVENT DETAILS:** As a **user** I can **click a link on the events page** so that **I can see the details of the individual event on a new page**.
+* **SITE PAGINATION:** As a **user** I can **see a paginated list of events** so that **I can view a few posts at a time**.
+* **VIEW ATTENDEE NUMBER:** As a **user** I can **see the total number of attendees for an event** so that **I can see how many people are attending**.
+* **USER ACCOUNT CREATION:** As a **user** I can **create an account** so that **I can use the account to add content**.
+* **ADD COMMENTS TO EVENT:** As a **user** I can **add comments to an event when logged in** so that **I can add comments to an event**.
+* **ATTEND EVENTS:** As a **user** I can **mark that I am attending an event** so that **I can show my interest in an event**.
+* **MESSAGES:** As a **user** I can **see messages to let me know my action has been carried out** so that **I receive information about my actions**.
+* **ADD EVENT:** As a **registered user** I can **add an event** so that **I can list my event on the site**.
+* **EDIT EVENT:** As a **registered user** I can **edit my own event** so that **I can correct mistakes and update details**.
+* **DELETE EVENT:** As a **registered user** I can **delete my events** so that **remove my events from the site**.
+* **AUTO COMPLETE SLUG AND ORGANISER FIELDS:** As a **registered user** I can **auto complete slugs and organiser fields** so that **they are created automatically**.
+
+
+
+*Epics*
+
+* 
+***
+
 ### **Color Scheme:**
 
 The color scheme was designed to incorporate natural greens, browns and yellows, to reflect the environmental aspect, along with complementary colors.
 Colors were selected using the coolors color palette generator.  <br><br>
 
-![Coolors Palette](/docs/coolors.jpg)
+![Coolors Palette](/docs/images/litter-pickers-ldn-palette.png)
 ***
 
 ## **Typography**
 
-* The font used throughout the game was selected from Google Fonts.
-* A retro style computer font was desired, but most options seemed quite pixelated, so [Smooch sans](https://fonts.google.com/specimen/Smooch+Sans) was selected for its more modern and smoother representation.
+* The fonts used throughout the site were selected from Google Fonts.
+* Fonts were selected for their simple and readable design to avoid distracting from the content.
+* Inter, Kanit and Open Sans were selected
 
-![Font selection](/docs/smooch-sans-font.jpg)
+
+![Font selection](/docs/url.jpg)
 ***
 
 ## **Current Features**
@@ -98,95 +132,62 @@ Colors were selected using the coolors color palette generator.  <br><br>
 
 #### *Events Page:*
 
-* The game area holds all the elements required to play the game and display the outcome and points.  It narrows as the screen sizes increase, to avoid filling the screen with large areas to the left and right hand sides, with no content.
+* The events page displays a list of events to the user.  In desktop views, the events are organised into rows of three, with six events per page.
 
 ![Game Area](/docs/desktop-view.jpg)
 
 #### *Events Details Page:*
 
-* To illustrate the available options and choices, the following icons from FontAwesome are employed within the borders of buttons and other elements on the page.
-* [Question Mark](https://fontawesome.com/icons/question?s=solid&f=classic)
-* [Rock Symbol](https://fontawesome.com/icons/hand-back-fist?s=regular&f=classic)
-* [Paper Symbol](https://fontawesome.com/icons/hand?s=regular&f=classic)
-* [Scissors Symbol](https://fontawesome.com/icons/hand-scissors?s=regular&f=classic)
+* The events details page display the event in more detail
+* Each event has a unique url including both the slug and id of the event.
 
-#### *Controls Area:*
+#### *Add Event Page:*
 
-* The Control Area invites the player to select a weapon, contains three horizontally aligned buttons containing different symbols, representing the options of Rock, Paper or Scissors.  Titles for the options are listed below the buttons.  When the player selects an option, further selections are disabled until the game result is displayed and the button image turns green to feedback that the selection has been made.  Buttons return to the default state once they are reactivated.
+* The events details page display the event in more detail.  A comment form is displayed to logged in users.  Comments must be approved in the admin panel.  An attending button is clickable if the user is logged in.
 
-![Control Area](/docs/buttons.jpg)
-​
-#### *Choices Area:*
+#### *Edit Event Page:*
 
-* The Choices area displays the choices made for the current game.  Initially two question mark symbols are displayed.
+* The edit event page is linked with an edit link which is only displayable to the logged in user who created the event.
 
-![Choices Area](/docs/choices-default.jpg)
+#### *Delete Event Page:*
 
-* When the player selects an option from the buttons in the controls area, the selection replaces the question mark in the Player Choice element.
+* The delete event page is linked with an delete link which is only displayable to the logged in user who created the event.
 
-![Player Choice](/docs/choice-player-selection.jpg)
+#### *Add Comment:*
 
-* After a short delay, the computer's random selection is displayed and the game completes, showing the colours corresponding to the game result.  Draw's or Tie's are displayed in a blue-green colour.
+* A logged in user can create and submit a comment which is displayed to the user only, until approved. A total of approved comments is located on the page.
 
-![Computer Choice](/docs/choice-computer-selection.jpg)
+#### *Attend Event:*
 
-* Win and loss games display red and green for the separate choice icons.
+* Logged in users can click the total number of attendees icon to indicate their interest in attending the event.  When done, the icon changes to idicate that the user had pressed the button.
 
-![Win Lose Choice](/docs/choice-win-lose.jpg)
+#### *Alerts:*
 
-#### *Game State Area:*
+* Bootstrap alerst are displayed to the user when certain actions are carried out, such as adding a comment, adding a post, creating an account or logging in or out.
 
-* The Game State area holds the scores and a central game result element, which shows whether the game was won, lost or drawn from the player's aspect once a game is initiated and the computer choice has been displayed.
+#### *User Accounts:*
 
-![Game State Area](/docs/game-state-area-default.jpg)
-
-#### *Scores:*
-
-* The scores increment each time there is a win or loss game and change colour to show green for the opponent who is losing or green for winning.  The scores do not change colour if there is a draw and no score has been registered yet.
-
-![Win Loss State](/docs/game-state-area.jpg)
-
-![Draw No-Score Event](/docs/points-draw-nil-nil.jpg)
-
-![Draw No-Score Event](/docs/points-draw-state.jpg)
-
-#### *Game Result:*
-
-* The game result element shows a question mark when the page loads and as soon as a controls area button is pressed.  It then displays a text and colour indication of whether the game was won, lost or drawn.
-
-![Game Result Options](/docs/game-state-displays.jpg)
-​
-#### *Information Area:*
-
-* The information area, at the bottom of the game area, holds the buttons to reset the game back to the default state and to bring up an alert box which tells the player how to play the game and what the winning options are.
-
-#### *How To Play Button:*
-
-* The 'how to play' button uses an 'onclick' call in the html to call the function which displays the alert.  Sweet Alert 2 was installed to handle the alert.
-
-![Sweet Alert Box](/docs/sweetalert2-box.jpg)
-
-#### *The Reset Button:*
-
-* The reset button is activated via an event listener, which then resets the symbols, scores and colours to their default state.
+* User accounts can be created via the 'Register' link in the navbar and require just a username, email and password.
 
 ## **Future-Enhancements**
 
-* Allow the user to select a set number of games, as a 'best of x turns' game.
-* Make the game appear fairer to the user by limiting the number of excess computer wins.
-* Make player and computer choice elements spin around Y-axis before displaying the result.
-* Make game playable for two human players.
+* Allow the user to search for events in their borough
+* Allow the user to create a personal profile page
+* Allow users to add reports of litter picks
+* Allow users to add images to comments
+* Allow users to use a page to request litter picks in their street or area.
+* Links to other information.
 ***
 
 ## **Testing Phase**
 
 * Responsiveness - A mobile-first approach was used to develop the site, using the iPhone 12 profile in Chrome dev tools.  The site was tested for responsiveness on different screen sizes throughout the development stages, using chrome dev tools, which allowed the page to be adjusted to display on small and large screen sizes with media queries.  The site was also tested using firefox on a desktop, on an android mobile phone using chrome, on an ipad and iphone 6 using safari and designed to display correctly.
 ​
-* Functionality - Each button has been pressed to make sure it applies the correct result.  All possible combinations have been tested to ensure the colours display correctly.  The reset button was tested to make sure all colors returned to black, symbols returned to defaults and scores returned to 0.  After resets, the game has been tested to make sure it continues to be playable.  The game info button was tested to make sure the alert box appeared and could be closed again.  The game was also given to a five year old, who played nearly 100 games on an ipad, highlighting the need to reduce the wait time for the game result, and was sent to family and friends who reported no issues using the game.
+* Functionality - The nature of Django means that many errors are picked up before deployment, as they frequently make themselves obvious while testing is set to True, with pages not loading or redirecting properly.  At each stage of development, the functionality has been tested to maske sure it works and these tests have been included in the list of task inside the User Stories on GitHub.
 
 * Contrast - The contrast on the page was checked using the WCAG Color contrast checker plugin in chrome and found to pass the tests, after adjustments to the colours and background and restricting colour changes to the inner parts of the elements and not the borders.
 
-![WCAG Color Contrast Results](/docs/wcag-contrast-check.jpg)
+![WCAG Color Contrast Results](/docs/url.jpg)
 
 * Lighthouse - The site was checked using the Lighthouse chrome plugin and found to pass the tests.
 
@@ -207,26 +208,16 @@ Colors were selected using the coolors color palette generator.  <br><br>
 
 ## **Bugs**
 
-* Issue - When checking the site on an ipad, the buttons were displayed in blue and partial colour changes were noted on the choices elements.
-* Cause - It appears that safari requires the color to be explicitly expressed in the relevant parts of the CSS, rather than just in the body and the blue portions were a fallback colour.
-* Resolution -  The colours were specified in the relevant parts of the CSS.
 
-
-* Issue - When testing the site on an ipad, the game area extended beyond the viewport when holding in landscape view.
-* Cause - Chrome's dev tools did not precisely mimic the ipad.
-* Resolution - Additional media queries were add to retrict the size on the iPad.
 ***
 
 ## **Deployment**
 
-I deployed the page on GitHub pages via the following procedure:
+I deployed the page on Heroku pages via the following procedure:
 ​
-1. From the project's [repository](https://github.com/broken-helix/rockpaperscissors), go to the **Settings** tab.
-2. From the left-hand menu, select the **Pages** tab.
-3. Under the **Source** section, select the **Main** branch from the drop-down menu and click **Save**.
-4. A message is displayed to indicate a successful deployment to GitHub pages and provide the live link.
+1. 
 ​
-The live site can be found at the following URL - [Rock, Paper, Scissors](https://broken-helix.github.io/rockpaperscissors/).
+The live site can be found at the following URL - [Litter Pickers London](https://pickers-london-f5f0f470e555.herokuapp.com/).
 ***
 
 ## **Tech**
@@ -236,7 +227,8 @@ The following technologies were employed in the creation of the site:
 - HTML
 - CSS
 - JS
-- SweetAlert2
+- Bootstrap
+- Django
 - Balsamiq Wireframes
 ***
 
@@ -244,15 +236,13 @@ The following technologies were employed in the creation of the site:
 
 ### **Honorable mentions**
 
-* Once again, I would like to thank my mentor, Richard Wells, who gave me some great insights into javascript and kept me motivated.
+* Once again, I would like to thank my mentor, Richard Wells, who gave me some great insights into models and kept me motivated.
 ***
 
 ### **Content:**
 
 * Fonts were sourced from [Google Fonts](https://fonts.google.com/).
 
-* Icons for the social media links and why fly section were sourced from [Font Awesome](https://fontawesome.com/icons).
-
-* The Sweet Alert box was installed from [Sweet Alert](https://sweetalert2.github.io/).
+* Icons were sourced from [Font Awesome](https://fontawesome.com/icons).
 
 * Wireframes were created using the [Balsamiq Wireframes](https://balsamiq.com/wireframes/) application.
