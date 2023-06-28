@@ -43,7 +43,7 @@
                 </p>
                 <div class="row">
 
-                    <div class="col-1">
+                    <div class="col-3">
                         <strong>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'event_attending' event.slug %}" method="POST">
@@ -60,9 +60,9 @@
                             <span class="text-secondary">{{ event.number_of_attendees }} </span>
                         </strong>
                     </div>
-                    <div class="col-1">
+                    <div class="col-3">
                         {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="fa-solid fa-comments"></i> | 
+                        <strong class="text-secondary"><i class="fa-solid fa-comments"></i>
                             <!-- Our total_comments variable goes before the closing strong tag -->
                             {{ total_comments }}</strong>
                         {% endwith %}
@@ -77,7 +77,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 card mb-4  mt-3">
             <h3>Comments:</h3>
             <div class="card-body">
                 <!-- Check if there are any comments -->

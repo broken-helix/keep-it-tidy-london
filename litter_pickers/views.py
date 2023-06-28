@@ -132,4 +132,3 @@ class DeleteEventView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVie
         if self.request.user == event.organiser:
             return True
         return False
-
