@@ -85,7 +85,7 @@ class EventAttending(View):
             return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
 
 
-class AddEventView(generic.CreateView):
+class AddEventView(LoginRequiredMixin, generic.CreateView):
     model = Event
     template_name = 'add_event.html'
     form_class = EventForm
