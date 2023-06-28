@@ -12,6 +12,14 @@ class CommentForm(forms.ModelForm):
 
 class EventForm(forms.ModelForm):
     date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    details = forms.CharField(widget=forms.Textarea)
+    meeting_point = forms.CharField()
+
+
+    def __init__(self, *args, **kwargs):
+        super(EventForm, self).__init__(*args, **kwargs)
+        self.fields['details'].widget.attrs['placeholder'] = 'Add some details about your Event. Time, description, what to bring, contact details...'
+        self.fields['meeting_point'].widget.attrs['placeholder'] = 'Postcode/ Address.'
 
     class Meta:
         model = Event
