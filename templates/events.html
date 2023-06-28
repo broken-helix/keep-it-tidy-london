@@ -19,7 +19,7 @@
                             {% else %}
                             <img class="card-img-top" 
                                 src=" {{ event.featured_image.url }} ">
-                                {% endif %}
+                            {% endif %}
                                 <div class="image-flash">
                                     <p class="author">{{ event.title }}</p>
                                     <p class="author">{{ event.get_borough_display }}</p>
@@ -28,8 +28,12 @@
                         </div>
                         <a href="{% url 'event_detail' event.id event.slug %}" class="event-link">
                             <h2 class="card-title">{{ event.title }}</h2>
-                            <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
-                            <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                            {% if user.is_authenticated %}
+                                {% if user.id == event.organiser.id %}
+                                    <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
+                                    <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                                {% endif %}
+                            {% endif %}
                         </a>
                         <hr />
                         <p><i class="fa-solid fa-user-plus"></i> | {{ event.number_of_attendees }}</p>

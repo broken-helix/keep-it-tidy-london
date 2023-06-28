@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Event
-from .forms import CommentForm
+from .forms import CommentForm, EventForm
 
 
 def index(request):
@@ -87,41 +88,47 @@ class EventAttending(View):
 class AddEventView(generic.CreateView):
     model = Event
     template_name = 'add_event.html'
-    fields = (
-        'title',
-        'featured_image',
-        'details',
-        'date',
-        'borough',
-        'meeting_point',
-        )
+    form_class = EventForm
 
     def get_success_url(self):
         return reverse('event_detail', args=(self.object.id, self.object.slug,))
 
     def form_valid(self, form):
         form.instance.organiser = self.request.user
-        return super (AddEventView, self).form_valid(form)
+        return super(AddEventView, self).form_valid(form)
 
 
-class EditEventView(generic.UpdateView):
+class EditEventView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Event
     template_name = 'edit_event.html'
-    fields = (
-        'title',
-        'featured_image',
-        'details',
-        'date',
-        'borough',
-        'meeting_point',
-        'slug',
-        )
+    form_class = EventForm
+
+    def form_valid(self, form):
+        form.instance.organiser = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        event = self.get_object()
+        if self.request.user == event.organiser:
+            return True
+        return False
 
     def get_success_url(self):
         return reverse('event_detail', args=(self.object.id, self.object.slug,))
 
 
-class DeleteEventView(generic.DeleteView):
+class DeleteEventView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Event
     success_url = reverse_lazy('events')
     template_name = 'delete_event.html'
+
+    def form_valid(self, form):
+        form.instance.organiser = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        event = self.get_object()
+        if self.request.user == event.organiser:
+            return True
+        return False
+

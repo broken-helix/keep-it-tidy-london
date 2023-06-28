@@ -10,8 +10,12 @@
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="event-title">{{ event.title }}</h1>
-                <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
-                <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                {% if user.is_authenticated %}
+                    {% if user.id == event.organiser.id %}
+                        <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
+                        <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                    {% endif %}
+                {% endif %}
                 <!-- Post author goes before the | the post's created date goes after -->
                 <p class="event-subtitle">{{ event.organiser }} | {{ event.date }}</p>
             </div>
@@ -78,7 +82,7 @@
             <div class="card-body">
                 <!-- Check if there are any comments -->
                 {% if not event.comments.all %}
-                    No Comments Yet... <a href="#">Add One Now</a>
+                    No Comments Yet...
                 {% else %}
                     {% for comment in event.comments.all %}
                     <div class="comments" style="padding: 10px;">
