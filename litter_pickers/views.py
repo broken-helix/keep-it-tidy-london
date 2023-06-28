@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Event
 from .forms import CommentForm, EventForm
@@ -54,14 +55,14 @@ class EventDetail(View):
             comment = comment_form.save(commit=False)
             comment.event = event
             comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment awaiting moderation.')
             comment_form = CommentForm()
-            return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
         else:
             comment_form = CommentForm()
 
         return render(
             request,
-            self.template_name,
+            "event_details.html",
             {
                 "event": event,
                 "comments": comments,

@@ -96,6 +96,7 @@ The project board can be viewed here: [Litter Pickers London Project Board](http
 * **EDIT EVENT:** As a **registered user** I can **edit my own event** so that **I can correct mistakes and update details**.
 * **DELETE EVENT:** As a **registered user** I can **delete my events** so that **remove my events from the site**.
 * **AUTO COMPLETE SLUG AND ORGANISER FIELDS:** As a **registered user** I can **auto complete slugs and organiser fields** so that **they are created automatically**.
+* **RESTRICT PERMISSIONS:** As an **event organiser** I can **prevent others from editing or deleting my events** so that **my events are not edited or deleted by other users**.
 
 
 
