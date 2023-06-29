@@ -15,7 +15,7 @@ def index(request):
 class EventList(generic.ListView):
     model = Event
     template_name = 'events.html'
-    paginate_by = 6
+    paginate_by = 8
 
 
 class EventDetail(View):

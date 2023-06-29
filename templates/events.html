@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Events Page</h1>
+<h1 class="text-center">Join a Litter Pick</h1>
 <div class="container-fluid">
     <div class="row">
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <!-- Event Entries Column -->
+        <div class="col-12 mt-3">
             <div class="row">
             {% for event in event_list %}
-            <div class="col-md-4">
-                <div class="card-md-4">
-                    <div class="card-body">
-                        <div class="image-container">
+            <div class="col-sm-6 col-md-3">
+                <div class="card-sm-6 card-md-3">
+                    <div class="card-body">                    
+                        <div class="image-container text-center">
                             {% if 'placeholder' in event.featured_image.url %}
                             <img class="card-img-top" 
                                 src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg">
@@ -20,27 +20,20 @@
                             <img class="card-img-top" 
                                 src=" {{ event.featured_image.url }} ">
                             {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">{{ event.title }}</p>
-                                    <p class="author">{{ event.get_borough_display }}</p>
-                                    <p class="author">{{ event.date }}</p>
+                                <div class="event-title">
+                                    <h4><a href="{% url 'event_detail' event.id event.slug %}" class="event-link card-title text-center">
+                                        {{ event.title }}
+                                    </a></h4>
+                                    <p class="event-info mb-0">{{ event.get_borough_display }}, {{ event.date }}</p>
+                                    <p><a href="{% url 'event_detail' event.id event.slug %}" class="event-link mt-0 card-title text-center">
+                                        Event Details
+                                    </a></p>
                                 </div>
                         </div>
-                        <a href="{% url 'event_detail' event.id event.slug %}" class="event-link">
-                            <h2 class="card-title">{{ event.title }}</h2>
-                            {% if user.is_authenticated %}
-                                {% if user.id == event.organiser.id %}
-                                    <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
-                                    <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
-                                {% endif %}
-                            {% endif %}
-                        </a>
-                        <hr />
-                        <p><i class="fa-solid fa-user-plus"></i> | {{ event.number_of_attendees }}</p>
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:3 %}
+            {% if forloop.counter|divisibleby:4 %}
             </div>
             <div class="row">
             {% endif %}

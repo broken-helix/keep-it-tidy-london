@@ -3,6 +3,51 @@ body {
     margin: auto;
 }
 
+/* Navigation */
+.navbar {
+    background-color: #f1f7ed;
+}
+
+.litter {
+    color: #02aa0a;
+}
+
+.pickers {
+    color: #336699;
+    font-weight: 700;
+}
+
+.london {
+    color: #f40000;
+}
+
+/* Homepage */
+.fa-earth-europe {
+    color: #02aa0a;
+}
+
+.fa-heart {
+    color: #f40000;
+}
+
+.fa-user-group {
+    color: #336699;
+} 
+
+.fa-face-smile {
+    color: #ECA400;
+}
+
+/* Events Page */
+.card-img-top {
+    width: 250px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 50%;
+    border: 0.2rem solid #02aa0a;
+}
+
 /* Alerts */
 .flash-messages {
     position: fixed;
@@ -12,4 +57,30 @@ body {
     text-align: center;
     margin: auto;
     flex-grow: 1;
+}
+
+/* Responsiveness */
+@media screen and (min-width: 768px) {
+    /* Decrease Image Size at Overlap Point */ 
+    .card-img-top {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (min-width: 1030px) {
+    /* Limit Screen Width at Larger Screen Sizes */
+
+    body {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    /* Increase Image Size at Larger Screen Sizes */
+
+    .card-img-top {
+        width: 180px;
+        height: 180px;
+    }
 }
