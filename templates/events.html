@@ -14,10 +14,10 @@
                         <div class="image-container text-center">
                             {% if 'placeholder' in event.featured_image.url %}
                             <img class="card-img-top event-image-card" 
-                                src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg">
+                                src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg" alt="Image of overflowing rubbish bin">
                             {% else %}
                             <img class="card-img-top event-image-card" 
-                                src=" {{ event.featured_image.url }} ">
+                                src=" {{ event.featured_image.url }} " alt="User submitted image for a litter pick event">
                             {% endif %}
                                 <div class="event-title">
                                     <h2 class="event-list"><a href="{% url 'event_detail' event.id event.slug %}" class="event-link card-title text-center">
