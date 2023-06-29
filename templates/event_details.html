@@ -7,7 +7,7 @@
 <div class="container-fluid pt-6">
     <div class="card border-0" style="">
         {% if "placeholder" in event.featured_image.url %}
-        <img class="card-img-top event-details-image-card" 
+            <img class="card-img-top event-details-image-card" 
             src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg" 
             alt="Card image cap">
         {% else %}
@@ -19,17 +19,17 @@
             <h5 class="card-title">{{ event.title }}</h5>
             {% if user.is_authenticated %}
                 {% if user.id == event.organiser.id %}
-                    <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
-                    <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
+                <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
                 {% endif %}
             {% endif %}
             <p class="card-text">{{ event.details | safe }}.</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Borough: {{ event.get_borough_display }}</li>
-            <li class="list-group-item">Date: {{ event.date }}</li>
-            <li class="list-group-item">Organiser: {{ event.organiser }}</li>
-            <li class="list-group-item">Meeting Point: {{ event.meeting_point }}</li>
+            <li class="list-group-item"><strong>Borough:</strong> {{ event.get_borough_display }}</li>
+            <li class="list-group-item"><strong>Date:</strong> {{ event.date }}</li>
+            <li class="list-group-item"><strong>Organiser:</strong> {{ event.organiser }}</li>
+            <li class="list-group-item"><strong>Meeting Point:</strong> {{ event.meeting_point }}</li>
         </ul>
         <div class="card-body">
             <strong>
@@ -45,7 +45,7 @@
                 {% else %}
                 <span class="btn-attending"><i class="fa-regular fa-user"></i></span>
                 {% endif %}
-                <span class="text-secondary">{{ event.number_of_attendees }} Attending </span>
+                <span class="text-secondary">{{ event.number_of_attendees }} Attending</span>
             </strong>
             {% with comments.count as total_comments %}
                 <strong class="text-secondary"><i class="fa-solid fa-comments"></i>
@@ -53,11 +53,17 @@
             {% endwith %}
             
         </div>
+        <hr>
     </div>
 
-    <div class="col-md-8 card mb-4 mt-3">
-            <h3 class="text-center">Comments:</h3>
-            <div class="card-body">
+
+
+    <div class="row">
+        
+        <div class="col-md-7">
+            
+            <h3>Comments:</h3>
+
                 <!-- Check if there are any comments -->
                 {% if not event.comments.all %}
                     No Comments Yet...
@@ -65,38 +71,37 @@
                     {% for comment in event.comments.all %}
                     <div class="comments" style="padding: 10px;">
                         <p class="font-weight-bold">
-                            <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                            {{ comment.name }}
-                            <span class="text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            {{ comment.created }}
-                            </span> commented:
+                        {{ comment.name }}
+                        <span class="text-muted font-weight-normal">
+                        {{ comment.created }}
+                        </span> commented:
                         </p>
-                        <!-- The body of the comment goes before the | -->
                         {{ comment.body | linebreaks }}
                         {% if not comment.approved and comment.name == user.username %}
-                        <small>
-                        <p class="approval">This comment is awaiting approval</p>
-                        </small>
+                            <small>
+                            <p class="approval">This comment is awaiting approval</p>
+                            </small>
                         {% endif %}
                     </div>
                     <hr>
                     {% endfor %}
                 {% endif %}    
-            </div>
+        </div>
+        <div class="col-md-4">
+        {% if user.is_authenticated %}
+            <h4>Leave a Comment:</h4>
+            <p>Posting as {{ user.username }}</p>
+            <form method="POST" style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+        {% endif %}
+        </div>
+        <div class="col-md-1"></div>
     </div>
+    
+    
     
 </div>
-    <div class="card-body">
-        {% if user.is_authenticated %}
-        <h3>Leave a Comment:</h3>
-        <p>Posting as {{ user.username }}</p>
-        <form method="POST" style="margin-top: 1.3em;">
-            {{ comment_form | crispy }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% endif %}
-    </div>
-    
 {% endblock content %}
