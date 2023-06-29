@@ -16,7 +16,6 @@ body {
 
 .litter {
     color: #047c0a;
-    font-weight: 700;
 }
 
 .pickers {
@@ -24,17 +23,26 @@ body {
 }
 
 .london {
-    color: #f40000;
-    font-weight: 700;
+    color: #e20303;
 }
 
 /* Homepage */
+
+.border-rounded {
+    border-radius: 2%;
+    border: 5px solid #047c0a
+}
+
+.justify {
+    text-align: justify;
+}
+
 .fa-earth-europe {
     color: #047c0a;
 }
 
 .fa-heart {
-    color: #f40000;
+    color: #e20303;
 }
 
 .fa-user-group {
@@ -75,7 +83,7 @@ body {
 }
 
 .btn-not-attending {
-    color: #f40000;
+    color: #e20303;
     border: none;
     background: transparent;
     padding: 0;

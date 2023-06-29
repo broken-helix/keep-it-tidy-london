@@ -26,7 +26,7 @@ class EventForm(forms.ModelForm):
             'Time, description, what to bring, contact details...'
         self.fields[
             'meeting_point'
-            ].widget.attrs['placeholder'] = 'Postcode/ Address.'
+            ].widget.attrs['placeholder'] = 'Postcode/ Address'
 
     class Meta:
         model = Event

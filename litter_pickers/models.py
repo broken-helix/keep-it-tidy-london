@@ -1,3 +1,5 @@
+import string  # for string constants
+import random  # for generating random strings 
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -75,7 +77,14 @@ class Event(models.Model):
     ]
     title = models.CharField(max_length=200, blank=False)
     details = models.TextField()
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField(
+        'image',
+        transformation={
+            'crop': 'limit',
+            'width': 1000,
+        },
+        default='placeholder'
+    )
     borough = models.CharField(max_length=80, choices=BOROUGHS)
     meeting_point = models.CharField(max_length=200)
     organiser = models.ForeignKey(User, on_delete=models.CASCADE,
@@ -100,8 +109,17 @@ class Event(models.Model):
         return self.attending.count()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        if not self.slug:
+            # Slug field must be unique, so give it a temporary throw-away value
+            temp_slug = "temporary-slug"
+            self.slug = temp_slug
+            super(Event, self).save(*args, **kwargs)
+            self.slug = "{}-{}".format(slugify(self.title), self.pk)
         super(Event, self).save(*args, **kwargs)
+
+#    def save(self, *args, **kwargs):
+#        self.slug = slugify(self.title)
+#        super(Event, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('event_detail', args=(str(self.slug)))

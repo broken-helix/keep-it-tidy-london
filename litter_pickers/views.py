@@ -83,7 +83,7 @@ class EventAttending(View):
             else:
                 event.attending.add(request.user)
 
-            return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
+            return HttpResponseRedirect(reverse('event_detail', kwargs={'slug': slug}))
 
 
 class AddEventView(LoginRequiredMixin, generic.CreateView):
@@ -92,7 +92,7 @@ class AddEventView(LoginRequiredMixin, generic.CreateView):
     form_class = EventForm
 
     def get_success_url(self):
-        return reverse('event_detail', args=(self.object.id, self.object.slug,))
+        return reverse('event_detail', args=(self.object.slug,))
 
     def form_valid(self, form):
         form.instance.organiser = self.request.user
@@ -115,7 +115,7 @@ class EditEventView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView)
         return False
 
     def get_success_url(self):
-        return reverse('event_detail', args=(self.object.id, self.object.slug,))
+        return reverse('event_detail', args=(self.object.slug,))
 
 
 class DeleteEventView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
