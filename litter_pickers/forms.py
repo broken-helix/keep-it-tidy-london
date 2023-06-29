@@ -16,37 +16,31 @@ class EventForm(forms.ModelForm):
     details = forms.CharField(widget=forms.Textarea)
     meeting_point = forms.CharField()
 
-
     def __init__(self, *args, **kwargs):
         super(EventForm, self).__init__(*args, **kwargs)
-        self.fields['details'].widget.attrs['placeholder'] = 'Add some details about your Event. Time, description, what to bring, contact details...'
-        self.fields['meeting_point'].widget.attrs['placeholder'] = 'Postcode/ Address.'
+        self.fields[
+            'details'
+        ].widget.attrs[
+            'placeholder'
+        ] = 'Add some details about your Litter-Pick. '\
+            'Time, description, what to bring, contact details...'
+        self.fields[
+            'meeting_point'
+            ].widget.attrs['placeholder'] = 'Postcode/ Address.'
 
     class Meta:
         model = Event
-        fields = ['title', 'featured_image', 'details', 'date', 'borough', 'meeting_point']
+        fields = [
+            'title',
+            'featured_image',
+            'details',
+            'date',
+            'borough',
+            'meeting_point'
+        ]
 
     def clean_date(self):
         event_date = self.cleaned_data.get('date')
         if event_date and event_date < date.today():
             raise ValidationError('The date should be in the future.')
         return event_date
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

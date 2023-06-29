@@ -78,12 +78,14 @@ class Event(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     borough = models.CharField(max_length=80, choices=BOROUGHS)
     meeting_point = models.CharField(max_length=200)
-    organiser = models.ForeignKey(User, on_delete=models.CASCADE, related_name='event_organiser')
+    organiser = models.ForeignKey(User, on_delete=models.CASCADE,
+                                  related_name='event_organiser')
     date = models.DateField(blank=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True)
-    attending = models.ManyToManyField(User, related_name='event_attendees', blank=True)
+    attending = models.ManyToManyField(User, related_name='event_attendees',
+                                       blank=True)
 
     class Meta:
         ordering = ['-created']
@@ -105,9 +107,9 @@ class Event(models.Model):
         return reverse('event_detail', args=(str(self.slug)))
 
 
-
 class Comment(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='comments')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE,
+                              related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

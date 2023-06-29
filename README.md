@@ -5,7 +5,7 @@ Litter Pickers London is a site dedicated to spreading the word about Litter Pic
 
 [View the live project here](https://pickers-london-f5f0f470e555.herokuapp.com).
 
-![Responsive Screenshot](/docs/am-i-responsive.jpg)
+![Responsive Screenshot](/docs/images//am-i-responsive.jpg)
 ***
 
 ## Table of contents:
@@ -165,7 +165,7 @@ Colors were selected using the coolors color palette generator.  <br><br>
 
 #### *Alerts:*
 
-* Bootstrap alerst are displayed to the user when certain actions are carried out, such as adding a comment, adding a post, creating an account or logging in or out.
+* Bootstrap alerts are displayed to the user when certain actions are carried out, such as adding a comment, adding a post, creating an account or logging in or out.
 
 #### *User Accounts:*
 

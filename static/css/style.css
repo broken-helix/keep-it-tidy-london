@@ -1,29 +1,36 @@
 body {
+    font-family: 'Open Sans', sans-serif;
     width: 90%;
     margin: auto;
 }
 
 /* Navigation */
+
+.brand {
+    font-family: 'Kanit', sans-serif;
+}
+
 .navbar {
     background-color: #f1f7ed;
 }
 
 .litter {
-    color: #02aa0a;
+    color: #047c0a;
+    font-weight: 700;
 }
 
 .pickers {
     color: #336699;
-    font-weight: 700;
 }
 
 .london {
     color: #f40000;
+    font-weight: 700;
 }
 
 /* Homepage */
 .fa-earth-europe {
-    color: #02aa0a;
+    color: #047c0a;
 }
 
 .fa-heart {
@@ -45,13 +52,13 @@ body {
     margin: 10px auto;
     padding: 10px;
     border-radius: 50%;
-    border: 0.2rem solid #02aa0a;
+    border: 0.2rem solid #047c0a;
 }
 
 /* Event Details Page */
 
 .btn-attending {
-    color: #02aa0a;
+    color: #047c0a;
     border: none;
     background: transparent;
     padding: 0;
@@ -60,7 +67,7 @@ body {
 
 .btn-attending:hover,
 .btn-attending:active {
-    color: #02aa0a;
+    color: #047c0a;
     background: transparent;
     border: none;
     padding: 0;
@@ -80,7 +87,7 @@ body {
 .btn-signup,
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #02aa0a;
+    background-color: #047c0a;
     color: #fff;
 }
 
