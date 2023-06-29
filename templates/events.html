@@ -21,9 +21,9 @@
                                 src=" {{ event.featured_image.url }} ">
                             {% endif %}
                                 <div class="event-title">
-                                    <h4><a href="{% url 'event_detail' event.id event.slug %}" class="event-link card-title text-center">
+                                    <h2 class="event-list"><a href="{% url 'event_detail' event.id event.slug %}" class="event-link card-title text-center">
                                         {{ event.title }}
-                                    </a></h4>
+                                    </a></h2>
                                     <p class="event-info mb-0">{{ event.get_borough_display }}, {{ event.date }}</p>
                                     <p><a href="{% url 'event_detail' event.id event.slug %}" class="event-link mt-0 card-title text-center">
                                         Event Details

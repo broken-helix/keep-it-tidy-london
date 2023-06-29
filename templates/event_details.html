@@ -65,10 +65,10 @@
             <h3>Comments:</h3>
 
                 <!-- Check if there are any comments -->
-                {% if not event.comments.all %}
+                {% if not event.comments.approved %}
                     No Comments Yet...
                 {% else %}
-                    {% for comment in event.comments.all %}
+                    {% for comment in event.comments.approved %}
                     <div class="comments" style="padding: 10px;">
                         <p class="font-weight-bold">
                         {{ comment.name }}
@@ -77,11 +77,6 @@
                         </span> commented:
                         </p>
                         {{ comment.body | linebreaks }}
-                        {% if not comment.approved and comment.name == user.username %}
-                            <small>
-                            <p class="approval">This comment is awaiting approval</p>
-                            </small>
-                        {% endif %}
                     </div>
                     <hr>
                     {% endfor %}
