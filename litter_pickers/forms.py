@@ -2,6 +2,7 @@ from .models import Comment, Event
 from django import forms
 from django.core.exceptions import ValidationError
 from datetime import date
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class CommentForm(forms.ModelForm):

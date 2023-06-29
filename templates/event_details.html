@@ -4,81 +4,59 @@
 
 {% load crispy_forms_tags %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="event-title">{{ event.title }}</h1>
+<div class="container-fluid pt-6">
+    <div class="card border-0" style="">
+        {% if "placeholder" in event.featured_image.url %}
+        <img class="card-img-top event-details-image-card" 
+            src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg" 
+            alt="Card image cap">
+        {% else %}
+            <img src=" {{ event.featured_image.url }}" width="100%">
+        {% endif %}
+
+
+        <div class="card-body">
+            <h5 class="card-title">{{ event.title }}</h5>
+            {% if user.is_authenticated %}
+                {% if user.id == event.organiser.id %}
+                    <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
+                    <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                {% endif %}
+            {% endif %}
+            <p class="card-text">{{ event.details | safe }}.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Borough: {{ event.get_borough_display }}</li>
+            <li class="list-group-item">Date: {{ event.date }}</li>
+            <li class="list-group-item">Organiser: {{ event.organiser }}</li>
+            <li class="list-group-item">Meeting Point: {{ event.meeting_point }}</li>
+        </ul>
+        <div class="card-body">
+            <strong>
                 {% if user.is_authenticated %}
-                    {% if user.id == event.organiser.id %}
-                        <small><a href="{% url 'edit_event' event.id event.slug %}">Edit</a></small>
-                        <small><a href="{% url 'delete_event' event.id event.slug %}">Delete</a></small>
+                <form class="d-inline" action="{% url 'event_attending' event.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% if attending %}
+                    <button type="submit" name="event_id" value="{{event.slug}}" class="btn-attending"><i class="fa-solid fa-user-check"></i></button>
+                    {% else %}
+                    <button type="submit" name="event_id" value="{{event.slug}}" class="btn-not-attending"><i class="fa-regular fa-user"></i></button>
                     {% endif %}
-                {% endif %}
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="event-subtitle">{{ event.organiser }} | {{ event.date }}</p>
-            </div>
-            
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in event.featured_image.url %}
-                <img src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg" width="100%">
+                </form>
                 {% else %}
-                <img src=" {{ event.featured_image.url }}" width="100%">
+                <span class="btn-attending"><i class="fa-regular fa-user"></i></span>
                 {% endif %}
-            </div>
+                <span class="text-secondary">{{ event.number_of_attendees }} Attending </span>
+            </strong>
+            {% with comments.count as total_comments %}
+                <strong class="text-secondary"><i class="fa-solid fa-comments"></i>
+                {{ total_comments }} Comments</strong>
+            {% endwith %}
+            
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text ">
-                    {{ event.details | safe }}
-                </p>
-                <div class="row">
-
-                    <div class="col-3">
-                        <strong>
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'event_attending' event.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if attending %}
-                                <button type="submit" name="event_id" value="{{event.slug}}" class="btn-like"><i class="fa-solid fa-user-check"></i></button>
-                                {% else %}
-                                <button type="submit" name="event_id" value="{{event.slug}}" class="btn-like"><i class="fa-regular fa-user"></i></button>
-                                {% endif %}
-                            </form>
-                            {% else %}
-                            <span class="btn-like"><i class="fa-regular fa-user"></i></span>
-                            {% endif %}
-                            <span class="text-secondary">{{ event.number_of_attendees }} </span>
-                        </strong>
-                    </div>
-                    <div class="col-3">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="fa-solid fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
-                            {{ total_comments }}</strong>
-                        {% endwith %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3">
-            <h3>Comments:</h3>
+    <div class="col-md-8 card mb-4 mt-3">
+            <h3 class="text-center">Comments:</h3>
             <div class="card-body">
                 <!-- Check if there are any comments -->
                 {% if not event.comments.all %}
@@ -102,24 +80,23 @@
                         </small>
                         {% endif %}
                     </div>
+                    <hr>
                     {% endfor %}
                 {% endif %}    
             </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                {% if user.is_authenticated %}
-                <h3>Leave a Comment:</h3>
-                <p>Posting as {{ user.username }}</p>
-                <form method="POST" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
-            </div>
-        </div>
     </div>
+    
 </div>
-
+    <div class="card-body">
+        {% if user.is_authenticated %}
+        <h3>Leave a Comment:</h3>
+        <p>Posting as {{ user.username }}</p>
+        <form method="POST" style="margin-top: 1.3em;">
+            {{ comment_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+    
 {% endblock content %}

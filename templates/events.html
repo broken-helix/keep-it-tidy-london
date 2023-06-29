@@ -14,10 +14,10 @@
                     <div class="card-body">                    
                         <div class="image-container text-center">
                             {% if 'placeholder' in event.featured_image.url %}
-                            <img class="card-img-top" 
+                            <img class="card-img-top event-image-card" 
                                 src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg">
                             {% else %}
-                            <img class="card-img-top" 
+                            <img class="card-img-top event-image-card" 
                                 src=" {{ event.featured_image.url }} ">
                             {% endif %}
                                 <div class="event-title">

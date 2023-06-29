@@ -39,13 +39,34 @@ body {
 }
 
 /* Events Page */
-.card-img-top {
+.event-image-card {
     width: 250px;
     height: 250px;
     margin: 10px auto;
     padding: 10px;
     border-radius: 50%;
     border: 0.2rem solid #02aa0a;
+}
+
+/* Event Details Page */
+
+.btn-attending {
+    color: #02aa0a;
+    border: none;
+    background: transparent;
+}
+
+.btn-attending:hover,
+.btn-attending:active {
+    color: #02aa0a;
+    background: transparent;
+    border: none;
+}
+
+.btn-not-attending {
+    color: #f40000;
+    border: none;
+    background: transparent;
 }
 
 /* Alerts */
@@ -62,7 +83,7 @@ body {
 /* Responsiveness */
 @media screen and (min-width: 768px) {
     /* Decrease Image Size at Overlap Point */ 
-    .card-img-top {
+    .event-image-card {
         width: 150px;
         height: 150px;
     }
@@ -79,7 +100,7 @@ body {
 @media screen and (min-width: 1250px) {
     /* Increase Image Size at Larger Screen Sizes */
 
-    .card-img-top {
+    .event-image-card {
         width: 180px;
         height: 180px;
     }
