@@ -6,12 +6,19 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Form for comment form
+    """
     class Meta:
         model = Comment
         fields = ('body',)
 
 
 class EventForm(forms.ModelForm):
+    """
+    Form for event creation
+    Events can only be created in the future
+    """
     date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     details = forms.CharField(widget=forms.Textarea)
     meeting_point = forms.CharField()
@@ -39,6 +46,7 @@ class EventForm(forms.ModelForm):
             'meeting_point'
         ]
 
+    # Check date is not in the past
     def clean_date(self):
         event_date = self.cleaned_data.get('date')
         if event_date and event_date < date.today():

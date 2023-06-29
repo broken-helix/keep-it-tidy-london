@@ -6,6 +6,7 @@
 
 <div class="container-fluid pt-6">
     <div class="card border-0">
+        <!-- Check for image and load placeholder if not present -->
         {% if "placeholder" in event.featured_image.url %}
             <img class="card-img-top event-details-image-card" 
             src="https://res.cloudinary.com/dqesdpfj5/image/upload/v1687399354/john-cameron-WOT8JOjncHk-unsplash_z0ve8c.jpg" 
@@ -13,8 +14,7 @@
         {% else %}
             <img src=" {{ event.featured_image.url }}" width="100%">
         {% endif %}
-
-
+        <!-- Card for Event Details -->
         <div class="card-body">
             <h5 class="card-title">{{ event.title }}</h5>
             {% if user.is_authenticated %}
@@ -31,6 +31,7 @@
             <li class="list-group-item"><strong>Organiser:</strong> {{ event.organiser }}</li>
             <li class="list-group-item"><strong>Meeting Point:</strong> {{ event.meeting_point }}</li>
         </ul>
+        <!-- User attending button -->
         <div class="card-body">
             <strong>
                 {% if user.is_authenticated %}
@@ -51,19 +52,13 @@
                 <strong class="text-secondary"><i class="fa-solid fa-comments"></i>
                 {{ total_comments }} Comments</strong>
             {% endwith %}
-            
         </div>
         <hr>
     </div>
-
-
-
+    <!-- Comments -->
     <div class="row">
-        
         <div class="col-md-7">
-            
             <h3>Comments:</h3>
-
                 <!-- Check if there are any comments -->
                 {% if not event.comments.approved %}
                     No Comments Yet...
@@ -82,6 +77,7 @@
                     {% endfor %}
                 {% endif %}    
         </div>
+        <!-- Comment form -->
         <div class="col-md-4">
         {% if user.is_authenticated %}
             <h4>Leave a Comment:</h4>
@@ -93,10 +89,8 @@
             </form>
         {% endif %}
         </div>
+        <!-- Prevent comment form field expanding outsdie boundaries -->
         <div class="col-md-1"></div>
     </div>
-    
-    
-    
 </div>
 {% endblock content %}

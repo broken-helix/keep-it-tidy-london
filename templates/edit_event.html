@@ -3,7 +3,7 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-
+<!-- Restrict editing to event creator (organiser) -->
 {% if user.is_authenticated %}
     <div class="container">
         <h3>Edit Your Litter-Pick Event</h3>

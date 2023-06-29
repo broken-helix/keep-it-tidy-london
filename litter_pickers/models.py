@@ -1,5 +1,3 @@
-import string  # for string constants
-import random  # for generating random strings 
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -9,6 +7,10 @@ from django.utils.text import slugify
 
 
 class Event(models.Model):
+    """
+    Model to specify form fields
+    for event creation
+    """
     BARKINGANDDAGENHAM = 'BAD'
     BARNET = 'BAR'
     BEXLEY = 'BEX'
@@ -75,6 +77,7 @@ class Event(models.Model):
         (WANDSWORTH, 'Wandsworth'),
         (WESTMINSTER, 'Westminster'),
     ]
+
     title = models.CharField(max_length=200, blank=False)
     details = models.TextField()
     featured_image = CloudinaryField(
@@ -108,24 +111,23 @@ class Event(models.Model):
     def number_of_attendees(self):
         return self.attending.count()
 
+    # Create slug out of title and pk so that slug is unique
     def save(self, *args, **kwargs):
         if not self.slug:
-            # Slug field must be unique, so give it a temporary throw-away value
             temp_slug = "temporary-slug"
             self.slug = temp_slug
             super(Event, self).save(*args, **kwargs)
             self.slug = "{}-{}".format(slugify(self.title), self.pk)
         super(Event, self).save(*args, **kwargs)
 
-#    def save(self, *args, **kwargs):
-#        self.slug = slugify(self.title)
-#        super(Event, self).save(*args, **kwargs)
-
     def get_absolute_url(self):
         return reverse('event_detail', args=(str(self.slug)))
 
 
 class Comment(models.Model):
+    """
+    Model for comments
+    """
     event = models.ForeignKey(Event, on_delete=models.CASCADE,
                               related_name='comments')
     name = models.CharField(max_length=80)

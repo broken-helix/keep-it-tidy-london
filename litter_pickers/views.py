@@ -13,13 +13,22 @@ def index(request):
 
 
 class EventList(generic.ListView):
+    """
+    Model to display a list of events,
+    with max 8 events per page
+    """
     model = Event
     template_name = 'events.html'
     paginate_by = 8
 
 
 class EventDetail(View):
-
+    """
+    Model to display event details,
+    allow comments to be viewed and posted,
+    allow user to 'attend' events and display
+    numbers of attendees and approved comments
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Event.objects.all()
         event = get_object_or_404(queryset, slug=slug)
@@ -39,7 +48,7 @@ class EventDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Event.objects.all()
         event = get_object_or_404(queryset, slug=slug)
@@ -55,7 +64,11 @@ class EventDetail(View):
             comment = comment_form.save(commit=False)
             comment.event = event
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment awaiting moderation.')
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Comment awaiting moderation.'
+            )
             comment_form = CommentForm()
         else:
             comment_form = CommentForm()
@@ -74,7 +87,9 @@ class EventDetail(View):
 
 
 class EventAttending(View):
-    
+    """
+    Display attending status to user
+    """
     def post(self, request, slug):
         event = get_object_or_404(Event, slug=slug)
         if request.method == "POST" and request.user.is_authenticated:
@@ -83,23 +98,41 @@ class EventAttending(View):
             else:
                 event.attending.add(request.user)
 
-            return HttpResponseRedirect(reverse('event_detail', kwargs={'id': event.id, 'slug': slug}))
+            return HttpResponseRedirect(
+                reverse(
+                    'event_detail',
+                    kwargs={'id': event.id, 'slug': slug}
+                )
+            )
 
 
 class AddEventView(LoginRequiredMixin, generic.CreateView):
+    """
+    Create an event
+    Only available to users who are registered
+    and signed in
+    """
     model = Event
     template_name = 'add_event.html'
     form_class = EventForm
 
     def get_success_url(self):
-        return reverse('event_detail', args=(self.object.id, self.object.slug,))
+        return reverse(
+            'event_detail',
+            args=(self.object.id, self.object.slug,)
+        )
 
     def form_valid(self, form):
         form.instance.organiser = self.request.user
         return super(AddEventView, self).form_valid(form)
 
 
-class EditEventView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+class EditEventView(LoginRequiredMixin,
+                    UserPassesTestMixin,
+                    generic.UpdateView):
+    """
+    Edit event if signed in and creator of event
+    """
     model = Event
     template_name = 'edit_event.html'
     form_class = EventForm
@@ -115,10 +148,18 @@ class EditEventView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView)
         return False
 
     def get_success_url(self):
-        return reverse('event_detail', args=(self.object.id, self.object.slug,))
+        return reverse(
+            'event_detail',
+            args=(self.object.id, self.object.slug,)
+        )
 
 
-class DeleteEventView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+class DeleteEventView(LoginRequiredMixin,
+                      UserPassesTestMixin,
+                      generic.DeleteView):
+    """
+    Edit event if signed in and creator of event
+    """
     model = Event
     success_url = reverse_lazy('events')
     template_name = 'delete_event.html'
