@@ -3,7 +3,7 @@ Litter Pickers London is a site dedicated to spreading the word about Litter Pic
 
 [View the live project here](https://pickers-london-f5f0f470e555.herokuapp.com).
 
-![Am I Responsive?](docs/images/am-i-responsive.jpg)
+![Am I Responsive?](docs/testing/am-i-responsive.jpg)
 
 <hr>
 
