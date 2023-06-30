@@ -58,41 +58,39 @@
     <!-- Comments -->
     <div class="row">
         <div class="col-md-6">
-            <h2 class="mt-3">Comments:</h2>
-                <!-- Check if there are any comments -->
-                {% if not event.comments.approved %}
-                    No Comments Yet...
-                {% else %}
-                    {% for comment in event.comments.approved %}
-                    <div class="comments" style="padding: 10px;">
-                        <p class="font-weight-bold">
+            <h3 class="mt-3">Comments:</h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
                         {{ comment.name }}
-                        <span class="text-muted font-weight-normal">
-                        {{ comment.created }}
-                        </span> commented:
-                        </p>
-                        {{ comment.body | linebreaks }}
-                    </div>
-                    <hr>
-                    {% endfor %}
-                {% endif %}    
+                        <span class=" text-muted font-weight-normal">
+                            {{ comment.created }}
+                        </span> wrote:
+                    </p>
+                    {{ comment.body | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        <!-- Comment form -->
         <div class="col-md-6">
-            {% if commented %}
+            <div class="card-body">
+                {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval
                 </div>
-            {% endif %}
-            {% if user.is_authenticated %}
-                <h2 class="mt-3">Leave a Comment:</h2>
-                    <p>Posting as {{ user.username }}</p>
-                    <form method="POST" style="margin-top: 1.3em;">
-                        {% csrf_token %}
-                        {{ comment_form | crispy }}
-                        <button type="submit" class="btn btn-signup btn-lg">Comment</button>
-                    </form>
-            {% endif %}
+                {% else %}
+                {% if user.is_authenticated %}
+                <h2 class="mt-3">Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Comment</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

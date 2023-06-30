@@ -67,6 +67,7 @@ Litter Pickers London is a site dedicated to spreading the word about Litter Pic
 * As a **registered user** I can **delete my events** so that **remove my events from the site**.
 * As a **registered user** I can **auto complete slugs and organiser fields** so that **they are created automatically**.
 * As an **event organiser** I can **prevent others from editing or deleting my events** so that **my events are not edited or deleted by other users**.
+* As an **event organiser** I can **create events that are not deleted or edited by other users** so that **my events are secure**.
 
 ### SITE DESIGN ###
 * As a **user** I can **view an alert** so that **I know that my comment is awaiting approval**.
