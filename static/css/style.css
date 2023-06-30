@@ -30,7 +30,7 @@ body {
 
 .border-rounded {
     border-radius: 2%;
-    border: 5px solid #047c0a
+    border: 0.313rem solid #047c0a
 }
 
 .justify {
@@ -55,11 +55,11 @@ body {
 
 /* Events Page */
 .event-image-card {
-    width: 250px;
-    height: 250px;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 50%;
+    width: 15.625rem;
+    height: 15.625rem;
+    margin: 0.625rem auto;
+    padding: 0.625rem;
+    border-radius: 10%;
     border: 0.2rem solid #047c0a;
 }
 
@@ -103,7 +103,7 @@ body {
 .flash-messages {
     position: fixed;
     z-index: 1000;
-    width: 300px;
+    width: 18.75rem;
     margin-top: 0.5rem;
     text-align: center;
     margin: auto;
@@ -114,8 +114,8 @@ body {
 @media screen and (min-width: 768px) {
     /* Decrease Image Size at Overlap Point */ 
     .event-image-card {
-        width: 150px;
-        height: 150px;
+        width: 9.375rem;
+        height: 9.375rem;
     }
 }
 
@@ -131,7 +131,7 @@ body {
     /* Increase Image Size at Larger Screen Sizes */
 
     .event-image-card {
-        width: 180px;
-        height: 180px;
+        width: 11.25rem;
+        height: 11.25rem;
     }
 }
