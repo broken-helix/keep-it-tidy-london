@@ -47,10 +47,10 @@ All CSS code has been run through the [W3C - CSS](https://jigsaw.w3.org/css-vali
 All Python code has been run through the [CI PEP8 Testing](https://pep8ci.herokuapp.com/) validator and has returned no errors, results can be viewed below:
 
 #### **admin.py**
-![admin-py](docs/testing/admin-py.png)
+![admin-py](docs/images/admin.jpg)
 
 #### **app.py**
-![app-py](docs/testing/app-py.png)
+![app-py](docs/)
 
 
 
