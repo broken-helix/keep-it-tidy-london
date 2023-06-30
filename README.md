@@ -134,27 +134,32 @@ Wireframes for different views are linked here:
 - The menu contains links for the 'Home Page', which is also linked via the Brand Logo, the 'Events Page' and  'Login' and 'Register' links. 
 - Once the user is logged in the menu the 'Register' link is replaced with the 'Logout Page' link and the 'Logout' link is replaced with the 'Edd Event Page' link.
 - The navbar is fully responsive and collapses into a burger menu for mobile devices.
-![Desktop Nav](docs/read-me/desktop-nav.png)
+![Desktop Nav](docs/images/desktop-nav.jpg)
 
 #### **Mobile Navigation**
 - Presented as a burger menu for design responsiveness.
 - Once clicked a dropdown menu appears including all the page links as above.
-![Mobile Nav](docs/read-me/mobile-nav.png)
+![Mobile Nav](docs/images/mobile-nav.jpg)
+![Mobile Nav Expanded](docs/images/mobile-nav-expand.jpg.jpg)
 
 
 ### **Footer**
 - Located at the bottom of the page the footer contains links to social media platforms. I wanted to keep the footer as simple as possible to allow users easier navigation of the site by keeping any page links in one menu.
-![Footer](docs/read-me/footer.png)
+![Footer](docs/images/footer.jpg)
 
 ### **Home Page**
 - Upon landing on the homepage the user is presented with an information box which details the sites' purpose.
 - Lower down there are 4 sections, covering different reason why users should Litter Pick.
 - These tile into a single row on mobile devices.
+![Home Page About](docs/images/index-about-us.jpg)
+![Home Page Why](docs/images/why-litter-pick.jpg)
+
 
 ### **Events Page**
 - The Events page lists all available events in a range of formations, depeding on the screen size.
-- Images have been placed into circle containers which reduces the impact of differing aspect ratios on the layout.
+- Images have been placed into square containers which reduces the impact of differing aspect ratios on the layout.
 - Under each event is a link to the Event Details page specific to that event.
+![Events Page](docs/images/events.jpg)
 
 ### **Event Details Page**
 - The Event Details page provides more information about the event, together with a larger featured image.
@@ -164,6 +169,9 @@ Wireframes for different views are linked here:
 - Below this is an attending button, and a comments symbol, with respective counts.
 - Below the Event Detail card is a comment form and a list of comments, if present.
 - All comments have to be approved to be displayed.
+![Event Details](docs/images/event-details.jpg)
+![Event Details Links](docs/images/edit-delete-links.jpg)
+![Event Details Comments](docs/images/comments.jpg)
 
 #### **Add Event Page**
 - The Add Event page is essentially a form to complete.
@@ -171,31 +179,34 @@ Wireframes for different views are linked here:
 - A default image is attached in the event that no image is attached by the user.
 - Slugs are auto-generated and are comprised of the title and event id. This means the title does not have to be unique.
 - The organiser is automatically added to the Event.
-![Blog List](docs/read-me/blog-list.png)
+![Add Event](docs/images/add-event.jpg)
+![Add Event Date Picker](docs/images/add-event-date-picker.jpg)
+![Add Event Borough Choice](docs/images/add-event-borough-picker.jpg)
+![Add Event Past Dates](docs/images/aqdd-event-past-date.jpg)
 
 ### **Edit Event Page**
 - The Edit Event page is only accessible via the link on the Event Details page is the user is signed in and the creator of the event (the organiser).
 - Users who circumvent this by typing /edit at the end of the url are met with a 403 Forbidden page and cannot complete the action, ensuring they do not edit others' events.
+![Add Event](docs/images/add-event.jpg)
 
 ### **Delete Event Page**
 - The Delete Event page is only accessible via the link on the Event Details page is the user is signed in and the creator of the event (the organiser).
 - Users who circumvent this by typing /delete at the end of the url are met with a 403 Forbidden page and cannot complete the action, ensuring they do not edit others' events.
-![My Threads](docs/read-me/my-threads.png)
+![Delete Event](docs/images/delete.jpg)
 
 ### **Attending Button**
 - The attending button is located on the attending icon under the Event Details.
 - When clicked the counter increments if the user has marked themselves attending and the icon changes and turns a clear green colour.
-![Create Thread](docs/read-me/create-post.png)
 
 ### **Comment Counter**
 - The Comment Counter is under the Event Details on the Event Details page.
 - It counts approved comments, so will not change immediately when a post is made, so users are given an alert message to let them know their comment was posted.
-![Thread Details](docs/read-me/thread-details.png)
+![Attending Comment Counter](docs/images/attending-comments-counter.jpg)
 
 ### **Comments Section**
 - At the bottom of the page all users are able to view the comments section.
 - Authenticated users are able to leave comments.
-![Comments Section](docs/read-me/comments.png)
+![Comments Section](docs/images/comments.jpg)
 
 
 ### **Future Features**
@@ -214,22 +225,24 @@ Wireframes for different views are linked here:
 ## **ACCOUNTS**
 
 ### **Register Account**
-![Register Account](docs/read-me/register.png)
+![Register Account](docs/images/register.jpg)
 
 ### **Log in**
-![Log In](docs/read-me/login.png)
+![Log In](docs/images/sign-in.jpg)
 
 ### **Sign out**
-![Sign Out](docs/read-me/signout.png)
+![Sign Out](docs/images/sign-out.jpg)
 
 ### **Access denied**
-![Access Denied](docs/read-me/denied.png)
+![Access Denied](docs/images/forbidden.jpg)
 
 <hr>
 
 ## **TESTING**
 
-Testing and results can be found [here](TESTING.md)
+- Testing and results can be found [here](TESTING.md)
+- Manual tests were carried out throughout the process and documented in the user stories as tasks.
+- Different scenarios have been tested, such as trying to edit posts not created by the user, or creating duplicate event titles.
 
 <hr>
 

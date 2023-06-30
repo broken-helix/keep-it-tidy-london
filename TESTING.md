@@ -14,22 +14,22 @@
 All HTML code has been run through the [W3C - HTML](https://validator.w3.org/) validator and returns no errors, results can be viewed below:
 
 #### **Index.html**
-![HTML Home Page](docs/images/index.jpg)
+![HTML Home Page](docs/testing/index.jpg)
 
 #### **Events.html**
-![HTML Events Page](docs/images/events.jpg)
+![HTML Events Page](docs/testing/events.jpg)
 
 #### **Event-details.html**
-![HTML Event-Details Page](docs/images/event-detail.jpg)
+![HTML Event-Details Page](docs/testing/event-detail.jpg)
 
 #### **Add-event.html**
-![HTML Add Event Page](docs/images/add-event.jpg)
+![HTML Add Event Page](docs/testing/add-event.jpg)
 
 #### **Edit-event.html**
-![HTML Edit Event Page](docs/images/edit.jpg)
+![HTML Edit Event Page](docs/testing/edit.jpg)
 
 #### **Delete-event.html**
-![HTML Delete Event Page](docs/images/delete.jpg)
+![HTML Delete Event Page](docs/testing/delete.jpg)
 
 <hr>
 
@@ -37,7 +37,7 @@ All HTML code has been run through the [W3C - HTML](https://validator.w3.org/) v
 
 All CSS code has been run through the [W3C - CSS](https://jigsaw.w3.org/css-validator/) validator and returns no errors, results can be viewed below:
 
-![CSS Validator](docs/images/css.jpg)
+![CSS Validator](docs/testing/css.jpg)
 
 
 <hr>
@@ -47,7 +47,7 @@ All CSS code has been run through the [W3C - CSS](https://jigsaw.w3.org/css-vali
 All Python code has been run through the [CI PEP8 Testing](https://pep8ci.herokuapp.com/) validator and has returned no errors, results can be viewed below:
 
 #### **admin.py**
-![admin-py](docs/images/admin.jpg)
+![admin-py](docs/testing/admin.jpg)
 
 #### **app.py**
 ![app-py](docs/)
@@ -55,22 +55,24 @@ All Python code has been run through the [CI PEP8 Testing](https://pep8ci.heroku
 
 
 #### **forms.py**
-![forms-py](docs/images/forms.jpg)
+![forms-py](docs/testing/forms.jpg)
 
 #### **models.py**
-![models-py](docs/images/models.jpg)
+![models-py](docs/testing/models.jpg)
 
 #### **urls.py**
-![urls-py](docs/images/urls.jpg)
+![urls-py](docs/testing/urls.jpg)
 
 #### **views.py**
-![views-py](docs/images/views.jpg)
+![views-py](docs/testing/views.jpg)
 
 <hr>
 
 ## **Lighthouse**
 - The lighthouse score results can be found below.
-![Lighthouse](docs/images/lighthouse.jpg)
+
+![Lighthouse](docs/testing/lighthouse.jpg)
 
 ## **Bugs and Issues**
-- 
+- I was hoping that unapproved comments would display to the user but have been unable to get this to work in the time available.
+- I had originally set up the urls so that the url was unique, but realised duplicate event names would result in duplicate slugs, so included the event id within the slug.
