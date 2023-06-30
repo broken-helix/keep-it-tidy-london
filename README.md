@@ -104,7 +104,7 @@ The project board can be viewed here: [Litter Pickers London Project Board](http
 ### **Typography**
 - The fonts used throughout the site were selected from Google Fonts.
 - Fonts were selected for their simple and readable design to avoid distracting from the content.
-- Inter, Kanit and Open Sans were selected.
+- Kanit and Open Sans were selected.
 - All fonts were sourced through [Google fonts](https://fonts.google.com/).
 
 ### **Media**
