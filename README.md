@@ -140,7 +140,7 @@ Wireframes for different views are linked here:
 - Presented as a burger menu for design responsiveness.
 - Once clicked a dropdown menu appears including all the page links as above.
 ![Mobile Nav](docs/images/mobile-nav.jpg)
-![Mobile Nav Expanded](docs/images/mobile-nav-expand.jpg.jpg)
+![Mobile Nav Expanded](docs/images/mobile-nav-expand.jpg)
 
 
 ### **Footer**
@@ -243,6 +243,7 @@ Wireframes for different views are linked here:
 - Testing and results can be found [here](TESTING.md)
 - Manual tests were carried out throughout the process and documented in the user stories as tasks.
 - Different scenarios have been tested, such as trying to edit posts not created by the user, or creating duplicate event titles.
+- Responsiveness has been checked and adjusted in Chrome Dev Tools and the site has been viewed on mobiles and an mac without issues.
 
 <hr>
 
@@ -327,5 +328,5 @@ For more information on cloning please read the github documentation [here](http
 - [The Code Institutes](https://codeinstitute.net/) 'I Think Therefore I Blog' project which inspired the main functionality of the blog.
 - [Stack Overflow](https://stackoverflow.com/) for help with errors encountered during development.
 - [W3Schools - Python](https://www.w3schools.com/python/) for reference and research.
-- Richard Wells (https://github.com/D0nni387) - Code Institute mentor, without his patience and support I would not have been able to complete my project to a standard that I am happy with.
+- Richard Wells (https://github.com/D0nni387) - Code Institute mentor, who always manages to make the impossible possible.
 - Codemy on Youtube (https://www.youtube.com/@Codemycom/playlists) - Some very helpful tutorials on Django.
