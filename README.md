@@ -1,5 +1,5 @@
 # **Litter Pickers London - Introduction**
-Litter Pickers London is a site dedicated to spreading the word about Litter Picking and creating a community via user-organised litter picking events. This project is a Full-Stack development website built using the Django framework and employing full CRUD functionality. Litter Pickers London allows registered users to create organised Litter Pick Events in any of the boroughs of London.  These events can then be displayed on the Events page and signed in users can edit or delete any Litter Pick they have create don the site. Registered users can also interact by showing that they are attending an event or commenting on the details pages.
+Litter Pickers London is a site dedicated to spreading the word about Litter Picking and creating a community via user-organised litter picking events. This project is a Full-Stack development website built using the Django framework and employing full CRUD functionality. Litter Pickers London allows registered users to create organised Litter Pick Events in any of the boroughs of London.  These events are then be displayed on the Events page and signed in users can edit or delete any Litter Pick they have created on the site. Registered users can also interact by showing that they are attending an event or commenting on the event details pages.
 
 [View the live project here](https://pickers-london-f5f0f470e555.herokuapp.com).
 
@@ -95,10 +95,10 @@ The project board can be viewed here: [Litter Pickers London Project Board](http
 ## **DESIGN**
 
 ### **Colours**
-The color scheme was designed to incorporate natural greens, to reflect the environmental topic of the site, along with complementary colors.
-Colors were selected using the coolors color palette generator. Changes were made for constrast during the latter parts of development. <br><br>
+- The colour scheme was designed to incorporate a natural green, to reflect the environmental topic of the site, along with complementary and contrasting colours.
+- Colours were selected using the coolors color palette generator.<br><br>
 
-![Coolors Palette](/docs/images/litter-pickers-ldn-palette.png)
+![Coolors Palette](/docs/images/litterpickers-palette.png)
 
 ### **Typography**
 - The fonts used throughout the site were selected from Google Fonts.

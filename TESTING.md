@@ -14,22 +14,22 @@
 All HTML code has been run through the [W3C - HTML](https://validator.w3.org/) validator and returns no errors, results can be viewed below:
 
 #### **Index.html**
-![HTML Home Page](docs/testing/html-home.png)
+![HTML Home Page](docs/images/index.jpg)
 
 #### **Events.html**
-![HTML Events Page](docs/testing/html-about.png)
+![HTML Events Page](docs/images/events.jpg)
 
 #### **Event-details.html**
-![HTML Event-Details Page](docs/testing/html-thread-list.png)
+![HTML Event-Details Page](docs/images/event-detail.jpg)
 
-#### **Featured.html**
-![HTML Add Event Page](docs/testing/html-featured.png)
+#### **Add-event.html**
+![HTML Add Event Page](docs/images/add-event.jpg)
 
-#### **My-threads.html**
-![HTML Edit Event Page](docs/testing/html-mythreads.png)
+#### **Edit-event.html**
+![HTML Edit Event Page](docs/images/edit.jpg)
 
-#### **Thread-detail.html**
-![HTML Delete Event Page](docs/testing/html-detail.png)
+#### **Delete-event.html**
+![HTML Delete Event Page](docs/images/delete.jpg)
 
 <hr>
 
@@ -37,7 +37,7 @@ All HTML code has been run through the [W3C - HTML](https://validator.w3.org/) v
 
 All CSS code has been run through the [W3C - CSS](https://jigsaw.w3.org/css-validator/) validator and returns no errors, results can be viewed below:
 
-![CSS Validator](docs/testing/css-test.png)
+![CSS Validator](docs/images/css.jpg)
 
 
 <hr>
@@ -52,23 +52,25 @@ All Python code has been run through the [CI PEP8 Testing](https://pep8ci.heroku
 #### **app.py**
 ![app-py](docs/testing/app-py.png)
 
+
+
 #### **forms.py**
-![forms-py](docs/testing/forms-py.png)
+![forms-py](docs/images/forms.jpg)
 
 #### **models.py**
-![models-py](docs/testing/models-py.png)
+![models-py](docs/images/models.jpg)
 
 #### **urls.py**
-![urls-py](docs/testing/urls-py.png)
+![urls-py](docs/images/urls.jpg)
 
 #### **views.py**
-![views-py](docs/testing/views-py.png)
+![views-py](docs/images/views.jpg)
 
 <hr>
 
 ## **Lighthouse**
 - The lighthouse score results can be found below.
-![Lighthouse](docs/testing/lighthouse.png)
+![Lighthouse](docs/images/lighthouse.jpg)
 
 ## **Bugs and Issues**
 - 
