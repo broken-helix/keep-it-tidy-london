@@ -41,7 +41,7 @@ SECRET_KEY = 'SECRET_KEY'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-brokenhelix-keepittidyl-fvboom5jfzb.ws-eu101.gitpod.io',
+    '8000-brokenhelix-keepittidyl-fvboom5jfzb.ws-eu117.gitpod.io',
     'pickers-london-f5f0f470e555.herokuapp.com'
     ]
 
